@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+	
+</head>
+<body>
+
+<div class="container my-2">
+<h1>Doctors List </h1>
+
+<a th:href = "@{/showNewDoctorForm}" class="btn btn-primary btn-sm mb-3"> Add Doctor </a>
+<table border='1' class = "table table-striped table-responsive-md">
+<thead>
+			<thead>
+				<tr>
+					<th>
+							Doctor First Name
+					</th>
+					<th>
+							Doctor Last Name
+					</th>
+					<th>
+							Doctor Email
+					</th>
+					<th>
+							Doctor Mobile
+					</th>
+				
+					<th> Actions </th>
+				</tr>
+			</thead>
+
+<tbody>
+<tr th:each="Doctor : ${listDoctors}"> 
+<td th:text ="${Doctor.FirstName}"></td>
+<td th:text ="${Doctor.LastName}"></td>
+<td th:text ="${Doctor.Email}"></td>
+<td th:text ="${Doctor.Tel}"></td>
+
+
+
+<td> <a th:href="@{/showFormForUpdate/{id}(id=${Doctor.id})}" class="btn btn-primary">Update</a>
+     <a th:href="@{/deleteDoctor/{id}(id=${Doctor.id})}" class="btn btn-danger">Delete</a>
+					</td>
+</tr>
+
+
+
+
+</tbody>
+
+
+
+</table>
+<a th:href = "@{/}"> Back to Home Page</a>
+	</div>
+</body>
+</html>

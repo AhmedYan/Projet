@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Patient Management System</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+	
+</head>
+<title>Patient Management System</title>
+<body>
+
+<div class="container my-2">
+<h1>Patients List </h1>
+
+<a th:href = "@{/showNewPatientForm}" class="btn btn-primary btn-sm mb-3"> Add Patient </a>
+<table border='2' class = "table table-striped table-responsive-md">
+<thead>
+			<thead>
+				<tr>
+					<th>
+							Patient First Name
+					</th>
+					<th>
+							Patient Last Name
+					</th>
+					<th>
+							Patient Email
+					</th>
+					<th>
+							Patient Mobile
+					</th>
+					<th>
+							Patient Gender
+					</th>
+										<th>
+							Patient Birthday
+					</th>
+
+									
+					<th> Actions </th>
+				</tr>
+			</thead>
+
+<tbody>
+<tr th:each="Patient : ${listPatients}"> 
+<td th:text ="${Patient.FirstName}"></td>
+<td th:text ="${Patient.LastName}"></td>
+<td th:text ="${Patient.Email}"></td>
+<td th:text ="${Patient.Tel}"></td>
+<td th:text ="${Patient.Sexe}"></td>
+<td th:text ="${Patient.dnaissance}"></td>
+
+
+<td> <a th:href="@{/showFormForUpdateP/{id}(id=${Patient.id})}" class="btn btn-primary">Update</a>
+     <a th:href="@{/deletePatient/{id}(id=${Patient.id})}" class="btn btn-danger">Delete</a>
+					</td>
+</tr>
+
+
+
+
+</tbody>
+
+
+
+</table>
+<a th:href = "@{/}"> Back to Home Page</a>
+	</div>
+</body>
+</html>

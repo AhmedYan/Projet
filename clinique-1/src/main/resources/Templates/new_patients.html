@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Doctor Management System</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<h1>Patient Management System</h1>
+		<hr>
+		<h2>Save Patient</h2>
+
+		<form action="#" th:action="@{/savePatient}" th:object="${Patient}"
+			method="POST">
+			<input type="text" th:field="*{FirstName}"
+				placeholder="Patient First Name" class="form-control mb-4 col-4">
+				
+				<input type="text" th:field="*{LastName}"
+				placeholder="Patient Last Name" class="form-control mb-4 col-4">
+				
+				<input type="text" th:field="*{Email}"
+				placeholder="Patient Email" class="form-control mb-4 col-4">
+				
+				<input type="text" th:field="*{Tel}"
+				placeholder="Patient Mobile" class="form-control mb-4 col-4">
+				<input type="text" th:field="*{Sexe}"
+				placeholder="Patient Gender" class="form-control mb-4 col-4">
+				<input type="text" th:field="*{dnaissance}"
+				placeholder="Patient Birthday" class="form-control mb-4 col-4">
+
+		
+				<button type="submit" class="btn btn-info col-2"> Save Patient</button>
+		</form>
+		
+		
+		
+		<a th:href = "@{/showPatientsList}"> Back to Patient List</a>
+	</div>
+</body>
+</html>
